@@ -1,4 +1,4 @@
-//Write a program to implement Quick Sort using Array.
+//95. Write a program to implement Quick Sort using Array.
 
 #include <stdio.h>
 

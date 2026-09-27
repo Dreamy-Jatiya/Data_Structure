@@ -1,5 +1,5 @@
-//41. Write a program to implement a node structure for singly linked list. Read the 
-//    data in a node, print the node.
+//41. Write a program to implement a node structure for singly linked list.
+//    Read the data in a node, print the node.
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -10,20 +10,20 @@ struct Node
     struct Node* link;
 };
 
-void insert_Node(struct Node** first, int info)
+struct Node* insert_Node(struct Node* first, int info)
 {
     struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
 
     newNode->info = info;
     newNode->link = NULL;
 
-    if (*first == NULL)
+    if (first == NULL)
     {
-        *first = newNode;
+        first = newNode;
     }
     else
     {
-        struct Node* temp = *first;
+        struct Node* temp = first;
 
         while (temp->link != NULL)
         {
@@ -32,15 +32,17 @@ void insert_Node(struct Node** first, int info)
 
         temp->link = newNode;
     }
+
+    return first;
 }
 
-void display(struct Node** first)
+void display(struct Node* first)
 {
-    struct Node* temp = *first;
+    struct Node* temp = first;
 
-    if (*first == NULL)
+    if (first == NULL)
     {
-        printf("linked list is empty\n");
+        printf("Linked list is empty\n");
         return;
     }
 
@@ -55,7 +57,7 @@ void display(struct Node** first)
 
 void main()
 {
-    struct Node* first = NULL;   // Declare once
+    struct Node* first = NULL;
 
     int choice, info;
 
@@ -71,11 +73,11 @@ void main()
             printf("Enter info: ");
             scanf("%d", &info);
 
-            insert_Node(&first, info);
+            first = insert_Node(first, info);
             break;
 
         case 2:
-            display(&first);
+            display(first);
             break;
 
         case 3:

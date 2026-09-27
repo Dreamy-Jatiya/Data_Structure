@@ -27,11 +27,19 @@ void main()
         mid = (low + high) / 2;
 
         if (arr[mid] == target)
-            {printf("element found at index : %d " , mid);flag = 1 ;break;}
+        {
+            printf("element found at index : %d " , mid);
+            flag = 1;
+            break;
+        }
         else if (arr[mid] < target)
+        {
             low = mid + 1;
+        }
         else
+        {
             high = mid - 1;
+        }
     }
 
     if (flag == 0)
